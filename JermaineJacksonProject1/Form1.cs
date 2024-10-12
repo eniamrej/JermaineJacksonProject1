@@ -8,12 +8,5 @@ namespace JermaineJacksonProject1
         {
             InitializeComponent();
         }
-
-        private void ButtonClk(object sender, EventArgs e)
-        {
-            CarLot mCarLot = new CarLot();
-            string? output = mCarLot.PurchaseCar("ford", "focus st").ToString();
-            label1.Text = output;
-        }
     }
 }
