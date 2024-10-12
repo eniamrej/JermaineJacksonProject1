@@ -22,18 +22,10 @@ namespace JermaineJacksonProject1.Model
 
         private void StockLotWithDefaultInventory()
         {
-            Car firstCar = new Car("Ford","Focus ST", 28.3, 26298.98);
-            _inventory.Add( firstCar );
-
-            Car secondCar = new Car("Chevrolet", "Camaro ZL1", 19, 65401.23);
-            _inventory.Add( secondCar );
-
-            Car thirdCar = new Car("Honda", "Accord Sedan Ex", 30.2, 26780);
-            _inventory.Add( thirdCar );
-
-            Car fourthCar = new Car("Lexus", "ES 350", 24.1, 42101.10);
-            _inventory.Add( fourthCar );
-
+            AddCar("Ford","Focus ST", 28.3, 26298.98);
+            AddCar("Chevrolet", "Camaro ZL1", 19, 65401.23);
+            AddCar("Honda", "Accord Sedan Ex", 30.2, 26780);
+            AddCar("Lexus", "ES 350", 24.1, 42101.10);
         }
 
         /// <summary>
@@ -42,18 +34,16 @@ namespace JermaineJacksonProject1.Model
         /// <param name="makeInInventory">The make in inventory.</param>
         /// <returns></returns>
         /// <exception cref="System.InvalidOperationException"></exception>
-        public List<Car> FindCarsMake(string makeInInventory)
+        public List<Car> FindCarsByMake(string makeInInventory)
         {
-            List<Car> cars = [];
-
             foreach (var car in _inventory)
             {
                 if (car.Make.Equals(makeInInventory, StringComparison.OrdinalIgnoreCase))
                 {
-                    cars.Add(car);
+                    return _inventory;
                 }
             }
-            return (cars.Count > 0 ? cars : null) ?? throw new InvalidOperationException();
+            return null!;
         }
 
         public Car FindCarByMakeModel(string make, string model)
@@ -67,6 +57,26 @@ namespace JermaineJacksonProject1.Model
                 }
             }
             return null!;
+        }
+
+        public Car PurchaseCar(string make, string model)
+        {
+            foreach (var car in _inventory)
+            {
+                if (car.Make.Equals(make, StringComparison.OrdinalIgnoreCase) &
+                    car.Model.Equals(model, StringComparison.OrdinalIgnoreCase))
+                {
+                    _inventory.Remove(car);
+                    return car;
+                }
+            }
+            return null!;
+        }
+
+        public void AddCar(string make, string model, double mpg, double price)
+        {
+            Car addedCar = new Car(make, model, mpg, price);
+            _inventory.Add(addedCar);
         }
     }
 }
