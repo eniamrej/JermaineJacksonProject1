@@ -7,9 +7,13 @@ namespace JermaineJacksonProject1
     {
         public readonly List<Car> inventoryCars;
 
+        public CarLot carLot;
+
         public CarLotForm()
         {
             InitializeComponent();
+            inventoryCars = new List<Car>();
+            inventoryCars.
             LoadDefaultCars();
         }
 

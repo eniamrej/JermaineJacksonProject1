@@ -1,6 +1,9 @@
 ﻿
 namespace JermaineJacksonProject1.Model
 {
+    /// <summary>
+    /// Holds information on the cars in a list of cars
+    /// </summary>
     public class Car
     {
         /// <summary>

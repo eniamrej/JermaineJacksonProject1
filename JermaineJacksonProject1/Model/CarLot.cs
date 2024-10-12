@@ -2,7 +2,10 @@
 
 namespace JermaineJacksonProject1.Model
 {
-    internal class CarLot
+    /// <summary>
+    /// Holds the data for cars in the list
+    /// </summary>
+    public class CarLot
     {
         private readonly List<Car> _inventory;
 
