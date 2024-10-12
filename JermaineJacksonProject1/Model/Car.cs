@@ -1,7 +1,7 @@
 ﻿
 namespace JermaineJacksonProject1.Model
 {
-    internal class Car
+    public class Car
     {
         /// <summary>
         /// Stores the name of the care maker.
@@ -77,6 +77,17 @@ namespace JermaineJacksonProject1.Model
             Model = model;
             Mpg = mpg; 
             Price = price;
+        }
+
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            return $"{Make} {Model}, MPG: {Mpg}, Price: ${Price:N2}";
         }
     }
 }
