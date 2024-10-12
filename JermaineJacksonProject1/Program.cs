@@ -13,7 +13,7 @@ namespace JermaineJacksonProject1
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
 
-            Console.WriteLine("Git repository successfully connected!");
+            Console.WriteLine(@"Git repository successfully connected!");
         }
     }
 }
