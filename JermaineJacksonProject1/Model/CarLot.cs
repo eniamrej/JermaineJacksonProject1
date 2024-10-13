@@ -7,7 +7,7 @@ namespace JermaineJacksonProject1.Model
     /// </summary>
     public class CarLot
     {
-        private readonly List<Car> _inventory;
+        private readonly List<Car?> _inventory;
 
         /// <summary>
         /// A constant that declares the tax rate as 7.8 percent
@@ -28,14 +28,14 @@ namespace JermaineJacksonProject1.Model
         /// <value>
         /// The inventory of the list.
         /// </value>
-        public List<Car> Inventory => _inventory;
+        public List<Car?> Inventory => _inventory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CarLot"/> class.
         /// </summary>
         public CarLot()
         {
-            _inventory = new List<Car>();
+            _inventory = new List<Car?>();
             StockLotWithDefaultInventory();
         }
 
@@ -53,11 +53,11 @@ namespace JermaineJacksonProject1.Model
         /// <param name="makeInInventory">The make in inventory.</param>
         /// <returns>A list of the car objects that matches the make or null if the make is not found in the list</returns>
         /// <exception cref="System.InvalidOperationException"></exception>
-        public List<Car> FindCarsByMake(string makeInInventory)
+        public List<Car?> FindCarsByMake(string makeInInventory)
         {
             foreach (var car in _inventory)
             {
-                if (car.Make.Equals(makeInInventory, StringComparison.OrdinalIgnoreCase))
+                if (car != null && car.Make.Equals(makeInInventory, StringComparison.OrdinalIgnoreCase))
                 {
                     return _inventory;
                 }
@@ -75,7 +75,7 @@ namespace JermaineJacksonProject1.Model
         {
             foreach (var car in _inventory)
             {
-                if (car.Make.Equals(make, StringComparison.OrdinalIgnoreCase) &
+                if (car != null && car.Make.Equals(make, StringComparison.OrdinalIgnoreCase) &
                     car.Model.Equals(model, StringComparison.OrdinalIgnoreCase))
                 {
                     return car;
@@ -94,7 +94,7 @@ namespace JermaineJacksonProject1.Model
         {
             foreach (var car in _inventory)
             {
-                if (car.Make.Equals(make, StringComparison.OrdinalIgnoreCase) &
+                if (car != null && car.Make.Equals(make, StringComparison.OrdinalIgnoreCase) &
                     car.Model.Equals(model, StringComparison.OrdinalIgnoreCase))
                 {
                     _inventory.Remove(car);
@@ -122,17 +122,22 @@ namespace JermaineJacksonProject1.Model
         /// </summary>
         /// <param name="car">The car.</param>
         /// <returns>the total cost of a car object based on the car objects price</returns>
-        public double GetTotalCostOfPurchase(Car car)
+        public double GetTotalCostOfPurchase(Car? car)
         {
-            double totalCost = (double)car.Price! + ((double)car.Price! * TaxRate);
-            return totalCost;
+            if (car != null)
+            {
+                double totalCost = (double)car.Price! + ((double)car.Price! * TaxRate);
+                return totalCost;
+            }
+
+            throw new InvalidOperationException();
         }
 
         /// <summary>
         /// Finds the least expensive car.
         /// </summary>
         /// <returns>the car object with the smallest price or null if the list is empty</returns>
-        public Car FindLeastExpensiveCar()
+        public Car? FindLeastExpensiveCar()
         {
             for (int i = 0; i < _inventory.Count; i++)
             {
@@ -151,7 +156,7 @@ namespace JermaineJacksonProject1.Model
         /// Finds the most expensive car.
         /// </summary>
         /// <returns>the car object with the biggest price or null if the list is empty</returns>
-        public Car FindMostExpensiveCar()
+        public Car? FindMostExpensiveCar()
         {
             for (int i = 0; i < _inventory.Count; i++)
             {
@@ -170,17 +175,17 @@ namespace JermaineJacksonProject1.Model
         /// Finds the best MPG of the car objects in the list.
         /// </summary>
         /// <returns>the car with the best mpg</returns>
-        public Car FindBestMpgCar()
+        public Car? FindBestMpgCar()
         {
             if (_inventory.Count == 0)
             {
                 return null!;
             }
 
-            Car bestMpgCar = _inventory[0];
+            var bestMpgCar = _inventory[0];
             for (int i = 1; i < _inventory.Count; i++)
             {
-                if (_inventory[i].Mpg > bestMpgCar.Mpg)
+                if (_inventory[i]?.Mpg > bestMpgCar?.Mpg)
                 {
                     bestMpgCar = _inventory[i];
                 }
@@ -192,17 +197,17 @@ namespace JermaineJacksonProject1.Model
         /// Finds the worst MPG of the car objects in the list.
         /// </summary>
         /// <returns>the car with best mpg</returns>
-        public Car FindWorstMpgCar()
+        public Car? FindWorstMpgCar()
         {
             if (_inventory.Count == 0)
             {
                 return null!;
             }
 
-            Car worstMpgCar = _inventory[0];
+            var worstMpgCar = _inventory[0];
             for (int i = 1; i < _inventory.Count; i++)
             {
-                if (_inventory[i].Mpg < worstMpgCar.Mpg)
+                if (_inventory[i]?.Mpg < worstMpgCar?.Mpg)
                 {
                     worstMpgCar = _inventory[i];
                 }

@@ -19,22 +19,21 @@ namespace JermaineJacksonProject1.Model
         /// </value>
         public double MoneyAvailable { get; set; }
 
-        private List<Car> _cars;
+        private readonly List<Car> _cars;
 
-        private CarLot _carLot;
+        private CarLot? _carLot;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Shopper"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="moneyAvailable">The money available.</param>
-        /// <param name="carLot">The car lot.</param>
         /// <exception cref="System.ArgumentException">
         /// model cannot be null, empty, or white space
         /// or
         /// mpg cannot be negative
         /// </exception>
-        public Shopper(string name, double moneyAvailable, CarLot carLot)
+        public Shopper(string name, double moneyAvailable)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -49,7 +48,6 @@ namespace JermaineJacksonProject1.Model
             _cars = new List<Car>();
             Name = name;
             MoneyAvailable = moneyAvailable;
-            _carLot = carLot;
         }
 
         /// <summary>
@@ -60,8 +58,10 @@ namespace JermaineJacksonProject1.Model
         ///   <c>true</c> if this instance can purchace the specified car; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="System.ArgumentNullException">car</exception>
-        public Boolean CanPurchace(Car car)
+        public Boolean CanPurchase(Car? car)
         {
+            _carLot = new CarLot();
+
             if (car == null)
             {
                 throw new ArgumentNullException(nameof(car));

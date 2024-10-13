@@ -51,7 +51,7 @@
             MoneyLbl.Name = "MoneyLbl";
             MoneyLbl.Size = new Size(328, 15);
             MoneyLbl.TabIndex = 1;
-            MoneyLbl.Text = "Please entet the amount of money the shopper has available:";
+            MoneyLbl.Text = "Please enter the amount of money the shopper has available:";
             // 
             // ShopperNameTxtBox
             // 

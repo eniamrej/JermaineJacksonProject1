@@ -90,7 +90,7 @@ namespace JermaineJacksonProject1.Model
         /// </returns>
         public override string ToString()
         {
-            return $"{Make} {Model}, MPG: {Mpg}, Price: ${Price:N2}";
+            return $"{Make} {Model} {Price:c} {Mpg}mpg ";
         }
     }
 }

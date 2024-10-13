@@ -34,6 +34,7 @@
             menuStrip1 = new MenuStrip();
             newCarAdditionToolStripMenuItem = new ToolStripMenuItem();
             ShopperBtn = new Button();
+            ShopperBox = new ListBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,10 +42,11 @@
             // 
             CarLotBox.FormattingEnabled = true;
             CarLotBox.ItemHeight = 15;
-            CarLotBox.Location = new Point(211, 113);
+            CarLotBox.Location = new Point(21, 68);
             CarLotBox.Name = "CarLotBox";
             CarLotBox.Size = new Size(386, 154);
             CarLotBox.TabIndex = 0;
+            CarLotBox.SelectedIndexChanged += CarLotBox_SelectedIndexChanged;
             // 
             // contextMenuStrip1
             // 
@@ -63,13 +65,13 @@
             // newCarAdditionToolStripMenuItem
             // 
             newCarAdditionToolStripMenuItem.Name = "newCarAdditionToolStripMenuItem";
-            newCarAdditionToolStripMenuItem.Size = new Size(107, 20);
-            newCarAdditionToolStripMenuItem.Text = "NewCarAddition";
+            newCarAdditionToolStripMenuItem.Size = new Size(89, 20);
+            newCarAdditionToolStripMenuItem.Text = "Add New Car";
             newCarAdditionToolStripMenuItem.Click += newCarAdditionToolStripMenuItem_Click;
             // 
             // ShopperBtn
             // 
-            ShopperBtn.Location = new Point(569, 354);
+            ShopperBtn.Location = new Point(551, 263);
             ShopperBtn.Name = "ShopperBtn";
             ShopperBtn.Size = new Size(123, 23);
             ShopperBtn.TabIndex = 2;
@@ -77,11 +79,21 @@
             ShopperBtn.UseVisualStyleBackColor = true;
             ShopperBtn.Click += ShopperBtn_Click;
             // 
+            // ShopperBox
+            // 
+            ShopperBox.FormattingEnabled = true;
+            ShopperBox.ItemHeight = 15;
+            ShopperBox.Location = new Point(508, 128);
+            ShopperBox.Name = "ShopperBox";
+            ShopperBox.Size = new Size(239, 94);
+            ShopperBox.TabIndex = 3;
+            // 
             // CarLotForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(ShopperBox);
             Controls.Add(ShopperBtn);
             Controls.Add(menuStrip1);
             Controls.Add(CarLotBox);
@@ -101,5 +113,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem newCarAdditionToolStripMenuItem;
         private Button ShopperBtn;
+        private ListBox ShopperBox;
     }
 }
