@@ -1,7 +1,7 @@
 ﻿
 namespace JermaineJacksonProject1.Model
 {
-    internal class Shopper
+    public class Shopper
     {
         /// <summary>
         /// Stores the name of a shopper.

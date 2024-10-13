@@ -28,31 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
+            components = new System.ComponentModel.Container();
+            CarLotBox = new ListBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            menuStrip1 = new MenuStrip();
+            newCarAdditionToolStripMenuItem = new ToolStripMenuItem();
+            ShopperBtn = new Button();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // listBox1
+            // CarLotBox
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(329, 167);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 94);
-            listBox1.TabIndex = 0;
+            CarLotBox.FormattingEnabled = true;
+            CarLotBox.ItemHeight = 15;
+            CarLotBox.Location = new Point(211, 113);
+            CarLotBox.Name = "CarLotBox";
+            CarLotBox.Size = new Size(386, 154);
+            CarLotBox.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { newCarAdditionToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 1;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // newCarAdditionToolStripMenuItem
+            // 
+            newCarAdditionToolStripMenuItem.Name = "newCarAdditionToolStripMenuItem";
+            newCarAdditionToolStripMenuItem.Size = new Size(107, 20);
+            newCarAdditionToolStripMenuItem.Text = "NewCarAddition";
+            newCarAdditionToolStripMenuItem.Click += newCarAdditionToolStripMenuItem_Click;
+            // 
+            // ShopperBtn
+            // 
+            ShopperBtn.Location = new Point(569, 354);
+            ShopperBtn.Name = "ShopperBtn";
+            ShopperBtn.Size = new Size(123, 23);
+            ShopperBtn.TabIndex = 2;
+            ShopperBtn.Text = "Add Shopper";
+            ShopperBtn.UseVisualStyleBackColor = true;
+            ShopperBtn.Click += ShopperBtn_Click;
             // 
             // CarLotForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(listBox1);
+            Controls.Add(ShopperBtn);
+            Controls.Add(menuStrip1);
+            Controls.Add(CarLotBox);
+            MainMenuStrip = menuStrip1;
             Name = "CarLotForm";
             Text = "Form1";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private ListBox listBox1;
+        private ListBox CarLotBox;
+        private ContextMenuStrip contextMenuStrip1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem newCarAdditionToolStripMenuItem;
+        private Button ShopperBtn;
     }
 }
