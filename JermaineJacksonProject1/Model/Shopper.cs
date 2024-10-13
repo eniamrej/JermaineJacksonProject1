@@ -103,5 +103,15 @@ namespace JermaineJacksonProject1.Model
             }
         }
 
+        /// <summary>
+        /// Displays the shoppers name and money available and converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
+        {
+            return $"{Name}, {MoneyAvailable:C}";
+        }
     }
 }
